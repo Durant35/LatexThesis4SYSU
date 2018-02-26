@@ -6,8 +6,8 @@
 
 % book作为文档类
 % 插入空白页可以设置openright
+%\documentclass[12pt,openany,oneside]{book}
 \documentclass[fontset=ubuntu,UTF8,12pt,openany,oneside]{book}
-%\documentclass[fontset=ubuntu,UTF8,a4paper, 11pt]{book}
 
 % 定义本文所使用宏包
 \input{styles/package}
@@ -17,9 +17,6 @@
 \graphicspath{{figures/}}
 
 \begin{document}
-% 开始中文字体使用
-%\begin{CJK*}{UTF8}{song}
-%\CJKfamily{song}
 
 % ——————————————————————————————————————————————
 % 以下是论文导言部分，包括论文的封面，中英文摘要和中文目录
@@ -39,8 +36,8 @@
 %\pagestyle{empty}
 %\setcounter{page}{1}
 %\pagenumbering{arabic}
-\titleformat{\chapter}{\centering\sanhao\hei}{\chaptername}{2em}{} % 设置目录两字的格式
-
+% 设置目录两字的格式
+\titleformat{\chapter}{\centering\sanhao\hei}{123}{}{}[]
 \pdfbookmark[0]{目~~录}{mulu}
 % 中文目录
 \tableofcontents
@@ -68,29 +65,33 @@
 % 单独从 1 开始编页码
 \setcounter{page}{1}
 % chapter标题格式：小二，黑体，居中
-\titleformat{\chapter}{\centering\xiaoer\hei}{\chaptername}{2em}{}
+\titleformat{\chapter}{\centering\xiaoer\hei}{}{5em}{\chaptername \qquad}
 
 %%%%%%%%%%   正文   %%%%%%%%%%
 \include{body/intros}
 \include{body/review}
 
 %%%%%%%%%%  参考文献  %%%%%%%%%%
+% 设置参考文献四字的格式
+\titleformat{\chapter}{\centering\sanhao\hei}{}{2em}{}
+% 覆盖设置页眉内容
 \lhead{}
 \rhead{}
-\chead{\song\wuhao 中山大学硕士学位论文} % 覆盖设置页眉内容
+\chead{\song\wuhao 中山大学硕士学位论文}
 \defaultfont
-\bibliographystyle{references/TJUThesis}
+\bibliographystyle{styles/TJUThesis}
 \phantomsection
 \markboth{参考文献}{参考文献}
-\addcontentsline{toc}{chapter}{参考文献}       % 参考文献加入到中文目录
-%\nocite{*}                                     % 若将此命令屏蔽掉，则未引用的文献不会出现在文后的参考文献中
+% 参考文献加入到中文目录
+\addcontentsline{toc}{chapter}{参考文献}
+% 若将此命令屏蔽掉，则未引用的文献不会出现在文后的参考文献中
+%\nocite{*}
 \bibliography{references/thesis}
 
 % ——————————————————————————————————————————————
 % 以下是论文附录，在appendix子文件下
-
-% 重新设置想要的chapter格式
-\titleformat{\chapter}{\centering\sihao\hei}{\chaptername}{2em}{}
+% 重新设置想要的chapter格式: 去掉章节序号
+\titleformat{\chapter}{\centering\sihao\hei}{}{2em}{}
 
 % 攻读硕士学位期间发表学术论文情况
 \include{appendix/paper}

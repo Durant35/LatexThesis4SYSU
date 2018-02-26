@@ -16,11 +16,10 @@
 % 支持国际标准单位
 \usepackage[squaren]{SIunits}               
 
-\usepackage{titlesec}                       % 控制标题的宏包
 \usepackage{titletoc}                       % 控制目录的宏包
+\usepackage[raggedleft]{titlesec}               % 控制标题的宏包
 \usepackage{fancyhdr}                       % fancyhdr宏包 支持页眉和页脚的相关定义
 \usepackage[UTF8]{ctex}                     % 支持中文显示
-\usepackage{CJKpunct}                       % 精细调整中文的标点符号
 \usepackage{color}                          % 支持彩色
 \usepackage{amsmath}                        % AMSLaTeX宏包 用来排出更加漂亮的公式
 \usepackage{amssymb}                        % 数学符号生成命令
@@ -39,7 +38,6 @@
 \usepackage[amsmath,thmmarks,hyperref]{ntheorem}  % 定理类环境宏包，其中 amsmath 选项用来兼容 AMS LaTeX 的宏包
 \usepackage{CJKnumb}                        % 提供将阿拉伯数字转换成中文数字的命令
 \usepackage{indentfirst}                    % 首行缩进宏包
-\usepackage{CJKutf8}                        % 用在UTF8编码环境下，它可以自动调用CJK，同时针对UTF8编码作了设置
 %\usepackage{hypbmsec}                      % 用来控制书签中标题显示内容
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 \usepackage{xcolor}
@@ -109,5 +107,7 @@ rulesepcolor=\color{red!20!green!20!blue!20}
 \usepackage[bookmarks=true]{hyperref}
 \usepackage{bookmark}
 
+% xeCJK直接使用Window系统字体(一定要保证tex所存格式为UTF8，否则xeCJK汉字不显示)
 \usepackage{xeCJK}
-%\setCJKmainfont{SimSun}
+
+\usepackage{etoolbox}

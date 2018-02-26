@@ -1,11 +1,22 @@
 % !Mode:: "TeX:UTF-8"
 
 %%%%%%%%%%%%%%%%% Fonts Definition and Basics %%%%%%%%%%%%%%%%%
-\newcommand{\song}{\CJKfamily{song}}    % 宋体
-\newcommand{\fs}{\CJKfamily{fs}}        % 仿宋体
-\newcommand{\kai}{\CJKfamily{kai}}      % 楷体
-\newcommand{\hei}{\CJKfamily{hei}}      % 黑体
-\newcommand{\li}{\CJKfamily{li}}        % 隶书
+% 宋体
+\setCJKfamilyfont{song}{SimSun}
+\newcommand{\song}{\CJKfamily{song}}
+% 仿宋体
+\setCJKfamilyfont{fs}{FangSong_GB2312}
+\newcommand{\fs}{\CJKfamily{fs}}
+% 楷体
+\setCJKfamilyfont{kai}{KaiTi_GB2312}
+\newcommand{\kai}{\CJKfamily{kai}}
+% 黑体
+\setCJKfamilyfont{hei}{SimHei}
+\newcommand{\hei}{\CJKfamily{hei}}
+% 隶书
+\setCJKfamilyfont{li}{LiSu}
+\newcommand{\li}{\CJKfamily{li}}
+
 \newcommand{\chuhao}{\fontsize{28pt}{28pt}\selectfont}       % 初号, 单倍行距
 \newcommand{\yihao}{\fontsize{26pt}{26pt}\selectfont}       % 一号, 单倍行距
 \newcommand{\xiaoyi}{\fontsize{24pt}{24pt}\selectfont}      % 小一, 单倍行距
@@ -19,9 +30,10 @@
 \newcommand{\xiaowu}{\fontsize{9pt}{9pt}\selectfont}        % 小五, 单倍行距
 
 % 重新定义了波浪符~的意义
+% ctex 在 CJK 环境里自动使用 \CJKtilde？？？
 %\CJKtilde
 
-% 定义章的pre-post名称
+% 定义章的pre-post名称：第 n 章
 \newcommand\prechaptername{第}
 \newcommand\postchaptername{章}
 
@@ -78,8 +90,7 @@
 %%%%%%%%%%%%% Contents 目录 %%%%%%%%%%%%%%%%%
 \renewcommand{\contentsname}{目\qquad 录}
 % 控制目录深度，改为1
-\setcounter{tocdepth}{1}
-
+\setcounter{tocdepth}{2}
 \titlecontents{chapter}[2em]{\vspace{.0\baselineskip}\sihao\song}	% 可以重调skip
 	{\prechaptername~\thecontentslabel~\postchaptername\quad}{}
 	{\!\titlerule*[5pt]{$\cdot$}\!\!\!\!\sihao\contentspage}	% 调整点的距离
@@ -93,23 +104,27 @@
 
 %%%%%%%%%% Chapter and Section 章节 %%%%%%%%%%%%%
 \setcounter{secnumdepth}{4}
+% 设置段落间距
 \setlength{\parindent}{2em}
+
 % 如果使用第“一”章
 %\renewcommand{\chaptername}{\prechaptername\CJKnumber{\thechapter}\postchaptername}
 % 使用第“1”章
 \renewcommand{\chaptername}{\prechaptername~\thechapter~\postchaptername}
+
+%\titleformat{command}[shape]{format}{label}{sep}{before}[after]
 % 此处修改的chapter title会被主文件定义覆盖
 % chapter标题格式：小二，黑体，居中
-\titleformat{\chapter}{\centering\xiaoer\hei}{\chaptername}{2em}{}
+\titleformat{\chapter}{\centering\xiaoer\hei}{}{2em}{}
 \titlespacing{\chapter}{0pt}{0.1\baselineskip}{0.8\baselineskip}
 % section标题格式：小三，宋体加粗，左对齐
-\titleformat{\section}{\xiaosan\song\bfseries}{\thesection}{1em}{}
+\titleformat{\section}{\xiaosan\song\bfseries}{}{1em}{\thesection \quad}
 \titlespacing{\section}{0pt}{0.15\baselineskip}{0.25\baselineskip}
 % subsection标题格式：四号，宋体加粗，左对齐
-\titleformat{\subsection}{\sihao\song\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsection}{\sihao\song\bfseries}{}{1em}{\thesubsection \quad}
 \titlespacing{\subsection}{0pt}{0.1\baselineskip}{0.3\baselineskip}
 % subsubsection标题格式：小四，宋体加粗，左对齐
-\titleformat{\subsubsection}{\xiaosi\song\bfseries}{\thesubsubsection}{1em}{}
+\titleformat{\subsubsection}{\xiaosi\song\bfseries}{}{1em}{\thesubsubsection \quad}
 \titlespacing{\subsubsection}{0pt}{0.05\baselineskip}{0.1\baselineskip}
 
 
@@ -313,7 +328,7 @@
 	  {\sihao\song{
 	  \begin{tabular}{lc}
 	    学位论文作者签名:           &  \underline{\makebox[\@title@width][c]{~}} \\
-	    \qquad\qquad\qquad 日~~期:  &  \qquad 年\qquad 月\qquad 日 \\
+	    \qquad\qquad~~~ 日~~期:  &  \qquad 年\qquad 月\qquad 日 \\
 	  \end{tabular}}
 	 }
 	\end{flushright}
