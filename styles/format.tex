@@ -252,14 +252,15 @@
 	\def\ckeywords#1{\def\@ckeywords{#1}}\def\@ckeywords{}
 	\def\ekeywords#1{\def\@ekeywords{#1}}\def\@ekeywords{}
 	\def\cheading#1{\def\@cheading{#1}}\def\@cheading{}
+	
+	\fancypagestyle{newfancy}{
+		\fancyhf{}
+		\lhead{\song\wuhao \@cheading}  % 左页眉
+		\rhead{\prechaptername~\thechapter~\postchaptername}    % 右页眉
+		\renewcommand{\headrulewidth}{0.5 pt}
+		\fancyfoot[C]{\song\xiaowu ~\thepage~}
+	}
 
-	\pagestyle{fancy}
-	  \fancyhf{}
-	  %\fancyhead[C]{\song\wuhao \@cheading}  % 页眉
-	  \lhead{\song\wuhao \@cheading}  % 左页眉
-	%  \rhead{\prechaptername\CJKnumber{\thechapter}\postchaptername}    % 右页眉
-	  \rhead{\prechaptername~\thechapter~\postchaptername}    % 右页眉
-	  \fancyfoot[C]{\song\xiaowu ~\thepage~}
 	\newlength{\@title@width}
 
 	% 定义封面
@@ -310,10 +311,13 @@
 		\end{center}
 	\end{titlepage}
 	
-	% 空白页
-	\newpage
-	\thispagestyle{empty}
-	\mbox{}
+	
+	\ifprint
+		% 打印时插入空白页
+		\newpage
+		\thispagestyle{empty}
+		\mbox{}
+	\fi
 	
 	%%%%%%%%%%%%%%%%%%%   Originality Statement  %%%%%%%%%%%%%%%%%%%%%%%
 	\clearpage
@@ -357,10 +361,12 @@
 	\end{flushright}
 	\thispagestyle{empty}   % 去掉页码
 	
-	% 空白页
-	\newpage
-	\thispagestyle{empty}
-	\mbox{}
+	\ifprint
+		% 空白页
+		\newpage
+		\thispagestyle{empty}
+		\mbox{}
+	\fi
 	
 	%%%%%%%%%%%%%%%%%%% Abstract and Keywords 摘要和关键词 %%%%%%%%%%%%%%%%%%%%%%%
 	%中文摘要格式
@@ -404,10 +410,12 @@
 	{\hei\xiaosi 关键词：} \@ckeywords
 	%\thispagestyle{empty}
 	
-	% 空白页
-	\newpage
-	\thispagestyle{empty}
-	\mbox{}
+	\ifprint
+		% 空白页
+		\newpage
+		\thispagestyle{empty}
+		\mbox{}
+	\fi
 
 	\clearpage
 	% 避免空白页影响页码编号
@@ -418,7 +426,7 @@
 	\markboth{ABSTRACT}{ABSTRACT}
 	\pdfbookmark[0]{ABSTRACT}{eabstract}
 	
-	% 摘要不加到目录中
+	% 英文摘要不加到目录中
 	%\addcontentsline{toc}{chapter}{ABSTRACT}
 	
 	\thispagestyle{plain}
@@ -428,8 +436,9 @@
 	\setlength{\@title@width}{5cm}
 		{\xiaosi{
 		\begin{tabular}{ll}
-		Title: & Point of Interest Recommendation Based on Social Relationship  \\
-		& and Geographical Information \\
+		%Title: & \@etitle \\
+		%		&		   \\
+		Title: & \@etitle \\
 		Major:      &  \@esubject \\
 		Name:       &  \@eauthor \\
 		Supervisor: &  \@esupervisor \\
@@ -451,10 +460,12 @@
 	{\textbf{Keywords:}} \@ekeywords
 	\thispagestyle{plain}
 
-	% 空白页
-	\newpage
-	\thispagestyle{empty}
-	\mbox{}
+	\ifprint
+		% 空白页
+		\newpage
+		\thispagestyle{empty}
+		\mbox{}
+	\fi
 	
 	% 避免空白页影响页码编号
 	\clearpage
@@ -463,3 +474,10 @@
 	
 	}
 \makeatother
+
+%%%%%%%%%%%% 脚注 %%%%%%%%%%%%%%%%%
+%\renewcommand\footnoterule{\flushleft\raisebox{2pt}{\rule{42.68pt}{0.4pt}}}
+%\skip\footins=17.07pt
+\renewcommand\footnoterule{\vspace*{2.5cm}\hrule width 2.5cm\vspace*{0.3cm}}
+% 调整脚注行距
+%\renewcommand\footnotesep{0in}

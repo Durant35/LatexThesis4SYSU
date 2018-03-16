@@ -20,90 +20,99 @@
 % 定义默认中文字体为宋体
 \setCJKmainfont{SimSun}
 
+% 生成打印文档，插入空白页
+\newif\ifprint
+% 需要打印时取消注释
+%\printtrue
+
 \begin{document}
-
-% ——————————————————————————————————————————————
-% 以下是论文导言部分，包括论文的封面，中英文摘要和中文目录
-\frontmatter
-\fancypagestyle{plain}{
-	\fancyhf{}
-	\renewcommand{\headrulewidth}{0 pt}
-	\fancyfoot[C]{\song\xiaowu~\thepage~}
-}
-%%%%%%%%%%   封面   %%%%%%%%%%
-\input{preface/cover}
-
-%%%%%%%%%%   目录   %%%%%%%%%%
-\defaultfont
-%\clearpage{\pagestyle{empty}\cleardoublepage}
-% 单独从 1 开始编页码
-%\pagestyle{empty}
-%\setcounter{page}{1}
-%\pagenumbering{arabic}
-% 设置目录两字的格式
-\titleformat{\chapter}{\centering\sanhao\hei}{123}{}{}[]
-\pdfbookmark[0]{目~~录}{mulu}
-% 中文目录
-\tableofcontents
-%\fancypagestyle{plain}{
-%\fancyhf{}
-%\renewcommand{\headrulewidth}{0 pt}
-%\fancyfoot[C]{\song\xiaowu~\thepage~}
-%}
-\thispagestyle{plain}
-
-
-% ——————————————————————————————————————————————
-% 以下是论文正文，内容在body子文件夹下
-\mainmatter\defaultfont\sloppy\raggedbottom
-
-\makeatletter
-	\fancypagestyle{plain}{                              % 设置开章页眉页脚风格
+	% ——————————————————————————————————————————————
+	% 以下是论文导言部分，包括论文的封面，中英文摘要和中文目录（首页都是plain样式，无页眉）
+	\frontmatter
+	\fancypagestyle{plain}{
+		\fancyhf{}
+		\renewcommand{\headrulewidth}{0 pt}
+		\fancyfoot[C]{\song\xiaowu~\thepage~}
+	}
+	
+	%%%%%%%%%%   封面   %%%%%%%%%%
+	\input{preface/cover}
+	
+	%%%%%%%%%%   目录   %%%%%%%%%%
+	% 单独从 1 开始编页码
+	%\clearpage{\pagestyle{empty}\cleardoublepage}
+	%\setcounter{page}{1}
+	%\pagenumbering{arabic}
+	
+	% 设置目录两字的格式
+	\titleformat{\chapter}{\centering\sanhao\hei}{123}{}{}[]
+	\pdfbookmark[0]{目~~录}{mulu}
+	
+	% 设置目录页无页眉，页脚为居中页码
+	\pagestyle{plain}
+	% 中文目录
+	\tableofcontents
+	
+	\clearpage
+	\pagestyle{newfancy}
+	% ——————————————————————————————————————————————
+	% 以下是论文正文，内容在body子文件夹下
+	% 默认即开章页无页眉
+	\mainmatter\defaultfont\sloppy\raggedbottom
+	% 设置开章页页眉眉页脚样式
+	\makeatletter
+	\fancypagestyle{plain}{
 		\fancyhf{}
 		\fancyhead[C]{\song\wuhao \@cheading}            % 首页页眉格式
 		\fancyfoot[C]{\song\xiaowu ~\thepage~}           % 首页页脚格式
 		\renewcommand{\headrulewidth}{0.5pt}
 		\renewcommand{\footrulewidth}{0pt}}
-\makeatother
-
-% 单独从 1 开始编页码
-\setcounter{page}{1}
-% chapter标题格式：小二，黑体，居中
-\titleformat{\chapter}{\centering\xiaoer\hei}{}{5em}{\chaptername \qquad}
-
-%%%%%%%%%%   正文   %%%%%%%%%%
-\include{body/intros}
-\include{body/review}
-
-%%%%%%%%%%  参考文献  %%%%%%%%%%
-% 设置参考文献四字的格式
-\titleformat{\chapter}{\centering\sanhao\hei}{}{2em}{}
-% 覆盖设置页眉内容
-\lhead{}
-\rhead{}
-\chead{\song\wuhao 中山大学硕士学位论文}
-\defaultfont
-\bibliographystyle{styles/TJUThesis}
-\phantomsection
-\markboth{参考文献}{参考文献}
-% 参考文献加入到中文目录
-\addcontentsline{toc}{chapter}{参考文献}
-% 若将此命令屏蔽掉，则未引用的文献不会出现在文后的参考文献中
-%\nocite{*}
-\bibliography{references/thesis}
-
-% ——————————————————————————————————————————————
-% 以下是论文附录，在appendix子文件下
-% 重新设置想要的chapter格式: 去掉章节序号
-\titleformat{\chapter}{\centering\sihao\hei}{}{2em}{}
-
-% 攻读硕士学位期间发表学术论文情况
-\include{appendix/paper}
-
-% 致谢
-\include{appendix/acknowledgements}
-
-\clearpage
-
-% 结束全文
+	\makeatother
+	% 单独从1开始编页码
+	\setcounter{page}{1}
+	% chapter标题格式：小二，黑体，居中
+	\titleformat{\chapter}{\centering\xiaoer\hei}{}{5em}{\chaptername \qquad}
+	
+	%%%%%%%%%%   正文   %%%%%%%%%%
+	\include{body/introduction}
+	\include{body/detection}
+	\include{body/tracking}
+	\include{body/learning}
+	\include{body/conclusion}
+	
+	% 覆盖设置参考文献等后续页面样式
+	\clearpage
+	\defaultfont
+	\lhead{}
+	\rhead{}
+	\chead{\song\wuhao 中山大学硕士学位论文}
+	% ——————————————————————————————————————————————
+	% 以下是论文参考文献，在references子文件下
+	
+	% 设置参考文献四字的格式
+	\titleformat{\chapter}{\centering\sanhao\hei}{}{2em}{}
+	
+	%%%%%%%%%%  参考文献  %%%%%%%%%%
+	\bibliographystyle{styles/TJUThesis}
+	\phantomsection
+	\markboth{参考文献}{参考文献}
+	% 参考文献加入到中文目录
+	\addcontentsline{toc}{chapter}{参考文献}
+	% 若将此命令屏蔽掉，则未引用的文献不会出现在文后的参考文献中
+	%\nocite{*}
+	\bibliography{references/thesis}
+	
+	% ——————————————————————————————————————————————
+	% 以下是论文附录，在appendix子文件下
+	% 重新设置想要的chapter格式: 去掉章节序号
+	\titleformat{\chapter}{\centering\sihao\hei}{}{2em}{}
+	
+	% 攻读硕士学位期间发表学术论文情况
+	\include{appendix/paper}
+	
+	% 致谢
+	\include{appendix/acknowledgements}
+	
+	\clearpage
+	% 结束全文
 \end{document}

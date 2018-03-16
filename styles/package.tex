@@ -10,7 +10,8 @@
 
 % 支持插图处理
 \usepackage{graphicx}
-\usepackage[a4paper,text={146.4true mm,239.2 true mm},top= 26.2true mm,left=31.8 true mm,head=6true mm,headsep=6.5true mm,foot=16.5true mm]{geometry}
+% 控制文档布局
+\usepackage[a4paper,text={146.4 true mm,239.2 true mm},top= 26.2 true mm,left=31.8 true mm,head=6 true mm,headsep=6.5 true mm,foot=16.5 true mm,footnotesep=-16.5 true mm]{geometry}
 
 % 支持版面尺寸设置
 % 支持国际标准单位
@@ -18,7 +19,9 @@
 
 \usepackage{titletoc}                       % 控制目录的宏包
 \usepackage[raggedleft]{titlesec}               % 控制标题的宏包
+
 \usepackage{fancyhdr}                       % fancyhdr宏包 支持页眉和页脚的相关定义
+
 \usepackage[UTF8]{ctex}                     % 支持中文显示
 \usepackage{color}                          % 支持彩色
 \usepackage{amsmath}                        % AMSLaTeX宏包 用来排出更加漂亮的公式
@@ -111,3 +114,6 @@ rulesepcolor=\color{red!20!green!20!blue!20}
 \usepackage{xeCJK}
 
 \usepackage{etoolbox}
+
+% 控制打印模式
+\usepackage{ifthen}
