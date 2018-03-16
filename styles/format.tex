@@ -160,8 +160,8 @@
 	   \fi
 	   \vskip\belowcaptionskip}
 \makeatother
-% 用来控制longtable表头分隔符
-\captiondelim{~~~~}
+% 用来控制longtable表头分隔符（依赖于subfigure）
+%\captiondelim{~~~~}
 
 
 %%%%%%%%%% Theorem Environment 定理 %%%%%%%%%%%%%%%%%
@@ -229,12 +229,13 @@
 \addtolength{\bibsep}{-0.5em}
 % 每个条目自第二行起缩进的距离
 \setlength{\bibhang}{2em}
-% 参考文献引用作为上标出现
-\makeatletter
-	\def\@cite#1#2{\textsuperscript{[{#1\if@tempswa , #2\fi}]}}
-\makeatother
+
 % 引用格式
 \bibpunct{[}{]}{,}{s}{}{,}
+% 默认参考文献引用号与正文内容一直，[]包裹
+\citestyle{plain}
+% 参考文献引用号作为上标出现
+\newcommand{\supercite}[1]{\textsuperscript{\cite{#1}}}
 
 %%%%%%%%%%%% Cover 封面、摘要、版权、致谢格式定义 %%%%%%%%%%%%%%%%%
 \makeatletter % 一直到结尾
@@ -478,6 +479,7 @@
 %%%%%%%%%%%% 脚注 %%%%%%%%%%%%%%%%%
 %\renewcommand\footnoterule{\flushleft\raisebox{2pt}{\rule{42.68pt}{0.4pt}}}
 %\skip\footins=17.07pt
-\renewcommand\footnoterule{\vspace*{2.5cm}\hrule width 2.5cm\vspace*{0.3cm}}
+% 结合geometry布局进行调整
+\renewcommand\footnoterule{\vspace*{1.5cm}\hrule width 2.5cm\vspace*{0.3cm}}
 % 调整脚注行距
 %\renewcommand\footnotesep{0in}
