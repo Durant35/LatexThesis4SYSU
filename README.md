@@ -1,5 +1,9 @@
-¸ù¾İÌì½ò´óÑ§Ñ§Î»ÂÛÎÄLaTeXÄ£°åĞŞ¸ÄµÄ·ûºÏÖĞÉ½´óÑ§±ÏÒµÂÛÎÄÒªÇóµÄLaTeXÄ£°å¡£
+æ ¹æ®å¤©æ´¥å¤§å­¦å­¦ä½è®ºæ–‡LaTeXæ¨¡æ¿ä¿®æ”¹çš„ç¬¦åˆä¸­å±±å¤§å­¦æ¯•ä¸šè®ºæ–‡è¦æ±‚çš„LaTeXæ¨¡æ¿ã€‚
 
-Ô­Ìì½ò´óÑ§Ñ§Î»ÂÛÎÄLaTeXÄ£°åÀ´Ô´£º
+åŸå¤©æ´¥å¤§å­¦å­¦ä½è®ºæ–‡LaTeXæ¨¡æ¿æ¥æºï¼š
 https://code.google.com/p/tjuthesis/
-Ê¹ÓÃÄ£°å¿É²Î¿¼Ô­Ä£°åËµÃ÷¡£
+ä½¿ç”¨æ¨¡æ¿å¯å‚è€ƒåŸæ¨¡æ¿è¯´æ˜ã€‚
+
+### How to use?
++ [Win + TexStudio](https://github.com/Durant35/LatexThesis4SYSU/wiki/Win10)
++ [Ubuntu + TexStudio](https://github.com/Durant35/LatexThesis4SYSU/wiki/Ubuntu16.04)
