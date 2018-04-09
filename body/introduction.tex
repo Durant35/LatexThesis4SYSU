@@ -77,11 +77,23 @@
 	\end{tabular}
 \end{table}
 
-公式例子，与普通Latex数学公式无异。
+公式例子，与普通Latex数学公式无异\footnote{这是一个脚注：\href{https://github.com/Durant35/LatexThesis4SYSU}{https://github.com/Durant35/LatexThesis4SYSU}}。
 
-\begin{equation}
+\begin{equation} \label{eq:Add}
 1+1=2
 \end{equation}
 
 \section{章节安排}
 
+
+
+% 打印时插入必要的空白页
+\ifprint
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+% 避免空白页影响页码编号
+\clearpage
+\setcounter{page}{10}
+\fi

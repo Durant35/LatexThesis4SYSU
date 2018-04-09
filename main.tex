@@ -11,21 +11,24 @@
 
 % 定义本文所使用宏包
 \input{styles/package}
-% 完成对论文各个部分格式的设置
-\input{styles/format}
-% 定义所有的.eps/.pdf图片文件在figures子目录下
-\graphicspath{{figures/}}
-% 定义默认英文字体为IEEE采用的Times New Roman字体
-\setmainfont{Times New Roman}
-% 定义默认中文字体为宋体
-\setCJKmainfont{SimSun}
 
 % 生成打印文档，插入空白页
 \newif\ifprint
 % 需要打印时取消注释
 %\printtrue
 
+% 定义默认英文字体为IEEE采用的Times New Roman字体
+\setmainfont{Times New Roman}
+% 定义默认中文字体为宋体
+\setCJKmainfont{SimSun}
+
 \begin{document}
+	% 完成对论文各个部分格式的设置
+	\input{styles/format}
+	
+	% 定义所有的.eps/.pdf图片文件在figures子目录下
+	\graphicspath{{figures/}}
+	
 	% ——————————————————————————————————————————————
 	% 以下是论文导言部分，包括论文的封面，中英文摘要和中文目录（首页都是plain样式，无页眉）
 	\frontmatter
@@ -78,6 +81,7 @@
 	\include{body/detection}
 	\include{body/tracking}
 	\include{body/learning}
+	\include{body/experiments}
 	\include{body/conclusion}
 	
 	% 覆盖设置参考文献等后续页面样式

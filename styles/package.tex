@@ -11,7 +11,8 @@
 % 支持插图处理
 \usepackage{graphicx}
 % 控制文档布局
-\usepackage[a4paper,text={146.4 true mm,239.2 true mm},top= 26.2 true mm,left=31.8 true mm,head=6 true mm,headsep=6.5 true mm,foot=16.5 true mm,footnotesep=-16.5 true mm]{geometry}
+%\usepackage[a4paper,text={146.4 true mm,239.2 true mm},top= 26.2 true mm,left=31.8 true mm,head=6 true mm,headsep=6.5 true mm,foot=16.5 true mm]{geometry}
+\usepackage[a4paper,text={146.4 true mm,239.2 true mm},top= 26.2 true mm,left=31.8 true mm,head=6 true mm,headsep=6.5 true mm,foot=16.5 true mm,footnotesep=-8 true mm]{geometry}
 
 % 支持版面尺寸设置
 % 支持国际标准单位
@@ -31,8 +32,16 @@
 \usepackage{booktabs}                       % 表格，横的粗线；\specialrule{1pt}{0pt}{0pt}
 \usepackage{longtable}                      % 支持跨页的表格。
 \usepackage{tabularx}                       % 自动设置表格的列宽
-\usepackage{subfigure}                      % 支持子图 %centerlast 设置最后一行是否居中
-\usepackage[subfigure]{ccaption}            % 支持子图的中文标题
+\usepackage{diagbox}						% 制作斜线单元格
+\usepackage{makecell}
+
+%\usepackage{subfigure}                      % 支持子图 %centerlast 设置最后一行是否居中
+%\usepackage[subfigure]{ccaption}            % 支持子图的中文标题
+% use the more updated subcaption package, which has replaced subfigure
+\usepackage{subcaption}
+%\usepackage{caption}
+%\usepackage{capt-of}
+
 \usepackage[sort&compress,numbers]{natbib}  % 支持引用缩写的宏包
 \usepackage{enumitem}                       % 使用enumitem宏包,改变列表项的格式
 \usepackage{calc}                           % 长度可以用+ - * / 进行计算
@@ -44,24 +53,25 @@
 %\usepackage{hypbmsec}                      % 用来控制书签中标题显示内容
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
 \usepackage{xcolor}
-%支持代码环境
+% 支持代码环境
 \usepackage{listings}
 \lstset{numbers=left,
-language=[ANSI]{C},
-numberstyle=\tiny,
-extendedchars=false,
-showstringspaces=false,
-breakatwhitespace=false,
-breaklines=true,
-captionpos=b,
-keywordstyle=\color{blue!70},
-commentstyle=\color{red!50!green!50!blue!50},
-frame=shadowbox,
-rulesepcolor=\color{red!20!green!20!blue!20}
+	language=[ANSI]{C},
+	numberstyle=\tiny,
+	extendedchars=false,
+	showstringspaces=false,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keywordstyle=\color{blue!70},
+	commentstyle=\color{red!50!green!50!blue!50},
+	frame=shadowbox,
+	rulesepcolor=\color{red!20!green!20!blue!20}
 }
-%支持算法环境
-\usepackage[boxed,ruled,lined]{algorithm2e}
-\usepackage{algorithmic}
+% 支持算法环境
+%\usepackage[boxed,ruled,lined]{algorithm2e}
+%\usepackage{algorithmic}
+\usepackage{algorithm,algpseudocode}
 
 \usepackage{array}
 \newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
@@ -73,26 +83,26 @@ rulesepcolor=\color{red!20!green!20!blue!20}
 % 如果您的pdf制作中文书签有乱码使用如下命令，就可以解决了
 \def\atemp{dvipdfmx}\ifx\atemp\usewhat
 \usepackage[dvipdfmx,unicode,               % dvipdfmx 编译, 加入了中文复制，粘贴支持引擎。
-            pdfstartview=FitH,
-            bookmarksnumbered=true,
-            bookmarksopen=true,
-            colorlinks=false,
-            pdfborder={0 0 1},
-            citecolor=blue,
-            linkcolor=red,
-            anchorcolor=green,
-            urlcolor=blue,
-            breaklinks=true
-            ]{hyperref}
+pdfstartview=FitH,
+bookmarksnumbered=true,
+bookmarksopen=true,
+colorlinks=false,
+pdfborder={0 0 1},
+citecolor=blue,
+linkcolor=red,
+anchorcolor=green,
+urlcolor=blue,
+breaklinks=true
+]{hyperref}
 \fi
 
 \def\atemp{pdflatex}\ifx\atemp\usewhat
 \usepackage{cmap}                           % pdflatex 编译时，可以生成可复制、粘贴的中文 PDF 文档， 缺点是在Windows上显示时效果不大好，字体发虚
 \usepackage[pdftex,unicode,
-            %CJKbookmarks=true,
-            bookmarksnumbered=true,
-            bookmarksopen=true,				
-            hidelinks
+%CJKbookmarks=true,
+bookmarksnumbered=true,
+bookmarksopen=true,				
+hidelinks
 %            colorlinks=true,		% original false
 %            pdfborder={0 0 1},
 %            citecolor=black,		% original blue
@@ -100,7 +110,7 @@ rulesepcolor=\color{red!20!green!20!blue!20}
 %            anchorcolor=black,		% original green
 %            urlcolor=blue,
 %            breaklinks=false		% original true
-            ]{hyperref}
+]{hyperref}
 \fi
 
 % 新增for url
@@ -112,8 +122,11 @@ rulesepcolor=\color{red!20!green!20!blue!20}
 
 % xeCJK直接使用Window系统字体(一定要保证tex所存格式为UTF8，否则xeCJK汉字不显示)
 \usepackage{xeCJK}
-
 \usepackage{etoolbox}
 
 % 控制打印模式
 \usepackage{ifthen}
+% 脚注跨章连续编号
+%\usepackage{chngcntr}
+% 脚注按页单独编号
+\usepackage[perpage]{footmisc}

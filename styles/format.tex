@@ -53,37 +53,37 @@
 % 自定义项目列表标签及格式 \begin{publist} 列表项 \end{publist}
 \newcounter{pubctr} %自定义新计数器
 \newenvironment{publist}{%%%%%定义新环境
-\begin{list}{[\arabic{pubctr}]} %%标签格式
-    {
-     \usecounter{pubctr}
-     \setlength{\leftmargin}{2.5em}   % 左边界 \leftmargin =\itemindent + \labelwidth + \labelsep
-     \setlength{\itemindent}{0em}     % 标号缩进量
-     \setlength{\labelsep}{1em}       % 标号和列表项之间的距离,默认0.5em
-     \setlength{\rightmargin}{0em}    % 右边界
-     \setlength{\topsep}{0ex}         % 列表到上下文的垂直距离
-     \setlength{\parsep}{0ex}         % 段落间距
-     \setlength{\itemsep}{0ex}        % 标签间距
-     \setlength{\listparindent}{0pt}  % 段落缩进量
-    }}
-{\end{list}}
+	\begin{list}{[\arabic{pubctr}]} %%标签格式
+		{
+			\usecounter{pubctr}
+			\setlength{\leftmargin}{2.5em}   % 左边界 \leftmargin =\itemindent + \labelwidth + \labelsep
+			\setlength{\itemindent}{0em}     % 标号缩进量
+			\setlength{\labelsep}{1em}       % 标号和列表项之间的距离,默认0.5em
+			\setlength{\rightmargin}{0em}    % 右边界
+			\setlength{\topsep}{0ex}         % 列表到上下文的垂直距离
+			\setlength{\parsep}{0ex}         % 段落间距
+			\setlength{\itemsep}{0ex}        % 标签间距
+			\setlength{\listparindent}{0pt}  % 段落缩进量
+	}}
+	{\end{list}}
 
 %makeatletter --> makeatother: \makeatletter使得@成为一个普通字母
 \makeatletter
-	\renewcommand\normalsize{
-		\@setfontsize\normalsize{12pt}{12pt} % 小四对应 12 pt
-		\setlength\abovedisplayskip{4pt}
-		\setlength\abovedisplayshortskip{4pt}
-		\setlength\belowdisplayskip{\abovedisplayskip}
-		\setlength\belowdisplayshortskip{\abovedisplayshortskip}
-		\let\@listi\@listI}
-	
-	% 不同的行距设置
-	% TJU原始值1.63
-	% 设为1.8则一页31行，1.95则一页29行（目前采用值）
-	\def\defaultfont{\renewcommand{\baselinestretch}{1.95}\normalsize\selectfont} % 设置行距，正文一页29行
-	
-	% 控制字间距，使每行 34 个汉字
-	\renewcommand{\CJKglue}{\hskip -0.1 pt plus 0.08\baselineskip}
+\renewcommand\normalsize{
+	\@setfontsize\normalsize{12pt}{12pt} % 小四对应 12 pt
+	\setlength\abovedisplayskip{4pt}
+	\setlength\abovedisplayshortskip{4pt}
+	\setlength\belowdisplayskip{\abovedisplayskip}
+	\setlength\belowdisplayshortskip{\abovedisplayshortskip}
+	\let\@listi\@listI}
+
+% 不同的行距设置
+% TJU原始值1.63
+% 设为1.8则一页31行，1.95则一页29行（目前采用值）
+\def\defaultfont{\renewcommand{\baselinestretch}{1.95}\normalsize\selectfont} % 设置行距，正文一页29行
+
+% 控制字间距，使每行 34 个汉字
+\renewcommand{\CJKglue}{\hskip -0.1 pt plus 0.08\baselineskip}
 \makeatother
 
 
@@ -92,14 +92,14 @@
 % 控制目录深度(目录页排版只排到二级标题，即章和节)，改为1
 \setcounter{tocdepth}{1}
 \titlecontents{chapter}[2em]{\vspace{.0\baselineskip}\sihao\song}	% 可以重调skip
-	{\prechaptername~\thecontentslabel~\postchaptername\quad}{}
-	{\!\titlerule*[5pt]{$\cdot$}\!\!\!\!\sihao\contentspage}	% 调整点的距离
+{\prechaptername~\thecontentslabel~\postchaptername\quad}{}
+{\!\titlerule*[5pt]{$\cdot$}\!\!\!\!\sihao\contentspage}	% 调整点的距离
 \titlecontents{section}[3em]{\vspace{-0.1\baselineskip}\xiaosi\song}
-	{\thecontentslabel\quad}{}
-	{\!\titlerule*[5pt]{$\cdot$}\!\!\!\!\xiaosi\contentspage}
+{\thecontentslabel\quad}{}
+{\!\titlerule*[5pt]{$\cdot$}\!\!\!\!\xiaosi\contentspage}
 \titlecontents{subsection}[4em]{\vspace{-0.2\baselineskip}\wuhao\song}
-	{\thecontentslabel\quad}{}
-	{\!\titlerule*[5pt]{$\cdot$}\!\!\!\!\wuhao\contentspage}
+{\thecontentslabel\quad}{}
+{\!\titlerule*[5pt]{$\cdot$}\!\!\!\!\wuhao\contentspage}
 
 
 %%%%%%%%%% Chapter and Section 章节 %%%%%%%%%%%%%
@@ -134,9 +134,9 @@
 % 使图编号为 7-1 的格式
 \renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}
 % 使子图编号为 a) 的格式
-%\renewcommand{\thesubfigure}{\alph{subfigure})}
+\renewcommand{\thesubfigure}{\alph{subfigure}}
 % 使子图编号为 (a) 的格式
-\renewcommand{\thesubfigure}{(\alph{subfigure})}
+%\renewcommand{\thesubfigure}{(\alph{subfigure})}
 % 使子表编号为 (a) 的格式
 \renewcommand{\thesubtable}{(\alph{subtable})}
 % 使表编号为 7-1 的格式
@@ -144,21 +144,22 @@
 % 使公式编号为 7-1 的格式
 \renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
 \makeatletter
-	% 使子图引用也是7-1a)或7-1(a)的形式
-	\renewcommand{\p@subfigure}{\thefigure}
+% 使子图引用也是7-1a)或7-1(a)的形式
+\renewcommand{\p@subfigure}{\thefigure}
 \makeatother
 % 定制浮动图形和表格标题样式
 \makeatletter
-	\long\def\@makecaption#1#2{
-	   \vskip\abovecaptionskip
-	   \sbox\@tempboxa{\centering\wuhao\song{#1\quad #2}}
-	   \ifdim \wd\@tempboxa >\hsize
-	     \centering\wuhao\song{#1\quad #2} \par	% narrower
-	   \else
-	     \global \@minipagefalse
-	     \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}
-	   \fi
-	   \vskip\belowcaptionskip}
+\long\def\@makecaption#1#2{
+	\vskip\abovecaptionskip
+	\sbox\@tempboxa{\centering\wuhao\song{#1\quad #2}}
+	% 控制图片说明对齐方式：单行居中/多行左对齐
+	\ifdim \wd\@tempboxa >\hsize
+	\flushleft\wuhao\song{#1\quad #2} \par	% narrower
+	\else
+	\global \@minipagefalse
+	\hb@xt@\hsize{\hfil\box\@tempboxa\hfil}
+	\fi
+	\vskip\belowcaptionskip}
 \makeatother
 % 用来控制longtable表头分隔符（依赖于subfigure）
 %\captiondelim{~~~~}
@@ -184,12 +185,18 @@
 \theoremsymbol{$\square$}
 
 
+%%%%%%%%%% 伪代码 %%%%%%%%%%%%%%%%%
+\floatname{algorithm}{算法}
+\renewcommand{\algorithmicrequire}{\textbf{输入:}}
+\renewcommand{\algorithmicensure}{\textbf{输出:}}
+
+
 %%%%%%%%%% Page: number, header and footer 页面设置 %%%%%%%%%%%%%%%%%
 %\frontmatter 或 \pagenumbering{roman}
 %\mainmatter 或 \pagenumbering{arabic}
 \makeatletter
-	\renewcommand\frontmatter{\clearpage
-		\@mainmatterfalse}
+\renewcommand\frontmatter{\clearpage
+	\@mainmatterfalse}
 \makeatother
 
 
@@ -197,33 +204,33 @@
 \renewcommand{\bibname}{参考文献}
 % 重定义参考文献样式，来自thu
 \makeatletter
-	\renewenvironment{thebibliography}[1]{
-    %\titleformat{\chapter}{\raggedright\sihao\hei}{\chaptername}{2em}{}
-    %\titleformat{\chapter}{\centering\sihao\hei}{\chaptername}{2em}{}
-    %\titleformat{\chapter}{\centering\xiaoer\hei}{\chaptername}{2em}{}
-   \chapter*{\bibname}
-   \wuhao
-   \list{\@biblabel{\@arabic\c@enumiv}}
-        {\renewcommand{\makelabel}[1]{##1\hfill}
-         \settowidth\labelwidth{0 cm}
-         \setlength{\labelsep}{0pt}
-         \setlength{\itemindent}{0pt}
-         \setlength{\leftmargin}{\labelwidth+\labelsep}
-         \addtolength{\itemsep}{-0.7em}
-%         \addtolength{\itemsep}{-1.0em}
-         \linespread{1.5}\selectfont	% 调整每个参考文献项内的间距 ！！！
-         \usecounter{enumiv}
-         \let\p@enumiv\@empty
-         \renewcommand\theenumiv{\@arabic\c@enumiv}}
-    \sloppy\frenchspacing
-    \clubpenalty4000
-    \@clubpenalty \clubpenalty
-    \widowpenalty4000
-    \interlinepenalty4000
-    \sfcode`\.\@m}
-   {\def\@noitemerr
-     {\@latex@warning{Empty `thebibliography' environment}}
-    \endlist\frenchspacing}
+\renewenvironment{thebibliography}[1]{
+	%\titleformat{\chapter}{\raggedright\sihao\hei}{\chaptername}{2em}{}
+	%\titleformat{\chapter}{\centering\sihao\hei}{\chaptername}{2em}{}
+	%\titleformat{\chapter}{\centering\xiaoer\hei}{\chaptername}{2em}{}
+	\chapter*{\bibname}
+	\wuhao
+	\list{\@biblabel{\@arabic\c@enumiv}}
+	{\renewcommand{\makelabel}[1]{##1\hfill}
+		\settowidth\labelwidth{0 cm}
+		\setlength{\labelsep}{0pt}
+		\setlength{\itemindent}{0pt}
+		\setlength{\leftmargin}{\labelwidth+\labelsep}
+		\addtolength{\itemsep}{-0.7em}
+		%         \addtolength{\itemsep}{-1.0em}
+		\linespread{1.5}\selectfont	% 调整每个参考文献项内的间距 ！！！
+		\usecounter{enumiv}
+		\let\p@enumiv\@empty
+		\renewcommand\theenumiv{\@arabic\c@enumiv}}
+	\sloppy\frenchspacing
+	\clubpenalty4000
+	\@clubpenalty \clubpenalty
+	\widowpenalty4000
+	\interlinepenalty4000
+	\sfcode`\.\@m}
+{\def\@noitemerr
+	{\@latex@warning{Empty `thebibliography' environment}}
+	\endlist\frenchspacing}
 \makeatother
 % 缩小参考文献间的垂直间距
 \addtolength{\bibsep}{-0.5em}
@@ -239,85 +246,85 @@
 
 %%%%%%%%%%%% Cover 封面、摘要、版权、致谢格式定义 %%%%%%%%%%%%%%%%%
 \makeatletter % 一直到结尾
-	\def\ctitle#1{\def\@ctitle{#1}}\def\@ctitle{}
-	\def\etitle#1{\def\@etitle{#1}}\def\@etitle{}
-	\def\csubject#1{\def\@csubject{#1}}\def\@csubject{}
-	\def\esubject#1{\def\@esubject{#1}}\def\@esubject{}
-	\def\cauthor#1{\def\@cauthor{#1}}\def\@cauthor{}
-	\def\eauthor#1{\def\@eauthor{#1}}\def\@eauthor{}
-	\def\csupervisor#1{\def\@csupervisor{#1}}\def\@csupervisor{}
-	\def\esupervisor#1{\def\@esupervisor{#1}}\def\@esupervisor{}
-	\def\cdate#1{\def\@cdate{#1}}\def\@cdate{}
-	\long\def\cabstract#1{\long\def\@cabstract{#1}}\long\def\@cabstract{}
-	\long\def\eabstract#1{\long\def\@eabstract{#1}}\long\def\@eabstract{}
-	\def\ckeywords#1{\def\@ckeywords{#1}}\def\@ckeywords{}
-	\def\ekeywords#1{\def\@ekeywords{#1}}\def\@ekeywords{}
-	\def\cheading#1{\def\@cheading{#1}}\def\@cheading{}
-	
-	\fancypagestyle{newfancy}{
-		\fancyhf{}
-		\lhead{\song\wuhao \@cheading}  % 左页眉
-		\rhead{\prechaptername~\thechapter~\postchaptername}    % 右页眉
-		\renewcommand{\headrulewidth}{0.5 pt}
-		\fancyfoot[C]{\song\xiaowu ~\thepage~}
-	}
+\def\ctitle#1{\def\@ctitle{#1}}\def\@ctitle{}
+\def\etitle#1{\def\@etitle{#1}}\def\@etitle{}
+\def\csubject#1{\def\@csubject{#1}}\def\@csubject{}
+\def\esubject#1{\def\@esubject{#1}}\def\@esubject{}
+\def\cauthor#1{\def\@cauthor{#1}}\def\@cauthor{}
+\def\eauthor#1{\def\@eauthor{#1}}\def\@eauthor{}
+\def\csupervisor#1{\def\@csupervisor{#1}}\def\@csupervisor{}
+\def\esupervisor#1{\def\@esupervisor{#1}}\def\@esupervisor{}
+\def\cdate#1{\def\@cdate{#1}}\def\@cdate{}
+\long\def\cabstract#1{\long\def\@cabstract{#1}}\long\def\@cabstract{}
+\long\def\eabstract#1{\long\def\@eabstract{#1}}\long\def\@eabstract{}
+\def\ckeywords#1{\def\@ckeywords{#1}}\def\@ckeywords{}
+\def\ekeywords#1{\def\@ekeywords{#1}}\def\@ekeywords{}
+\def\cheading#1{\def\@cheading{#1}}\def\@cheading{}
 
-	\newlength{\@title@width}
+\fancypagestyle{newfancy}{
+	\fancyhf{}
+	\lhead{\song\wuhao \@cheading}  % 左页眉
+	\rhead{\prechaptername~\thechapter~\postchaptername}    % 右页眉
+	\renewcommand{\headrulewidth}{0.5 pt}
+	\fancyfoot[C]{\song\xiaowu ~\thepage~}
+}
 
-	% 定义封面
-	\def\makecover{
+\newlength{\@title@width}
+
+% 定义封面
+\def\makecover{
 	\phantomsection
 	\pdfbookmark[-1]{\@ctitle}{ctitle}
 	
 	\begin{titlepage}
 		\vspace*{31.5pt}
 		\begin{center}
-	
-		\vspace*{21pt}
-		\hei\chuhao{\textbf{中山大学硕士学位论文}}
-	
-		\vspace*{60pt}
-		\song\xiaoer{\@ctitle}
-	
-		\xiaoer{\textrm{\@etitle}}
-	
-		\vspace*{80pt}
-		\setlength{\@title@width}{6cm}	% 控制封面中下划线的长度。
-		{\sihao\song{
-		\begin{tabular}{lc}
-		 学~~位~~申~~请~~人   &  \underline{\makebox[\@title@width][c]{\@cauthor}} \\
-		 指~~~~导~~~~老~~~~师       &  \underline{\makebox[\@title@width][c]{\@csupervisor}} \\
-		 专~~~~业~~~~名~~~~称 &  \underline{\makebox[\@title@width][c]{\@csubject}}\\
-		\end{tabular}}
-		}
-	
-		\vspace*{42pt}
-		\setlength{\@title@width}{5cm}
-		{\sanhao\song{
-		\begin{tabular}{lc}
-		 答辩委员会主席(签名):  &  \underline{\makebox[\@title@width][c]{~}} \\
-		 答辩委员会委员(签名):  &  \underline{\makebox[\@title@width][c]{~}} \\
-		 ~ &  \underline{\makebox[\@title@width][c]{~}}\\
-		 ~ &  \underline{\makebox[\@title@width][c]{~}}\\
-		 ~ &  \underline{\makebox[\@title@width][c]{~}}\\
-		 ~ &  \underline{\makebox[\@title@width][c]{~}}\\
-		\end{tabular}}	% 不加粗
-		}
-	
-		\vspace*{60pt}
-	
-		\vspace*{21pt}
-	
-		\song\sanhao{\textbf{\@cdate}}
+			
+			\vspace*{21pt}
+			\hei\chuhao{\textbf{中山大学硕士学位论文}}
+			
+			\vspace*{60pt}
+			\song\xiaoer{\@ctitle}
+			
+			\xiaoer{\textrm{\@etitle}}
+			
+			\vspace*{80pt}
+			\setlength{\@title@width}{6cm}	% 控制封面中下划线的长度。
+			{\sihao\song{
+					\begin{tabular}{lc}
+						学~~位~~申~~请~~人   &  \underline{\makebox[\@title@width][c]{\@cauthor}} \\
+						指~~~~导~~~~老~~~~师       &  \underline{\makebox[\@title@width][c]{\@csupervisor}} \\
+						专~~~~业~~~~名~~~~称 &  \underline{\makebox[\@title@width][c]{\@csubject}}\\
+				\end{tabular}}
+			}
+			
+			\vspace*{42pt}
+			\setlength{\@title@width}{5cm}
+			{\sanhao\song{
+					\begin{tabular}{lc}
+						答辩委员会主席(签名):  &  \underline{\makebox[\@title@width][c]{~}} \\
+						答辩委员会委员(签名):  &  \underline{\makebox[\@title@width][c]{~}} \\
+						~ &  \underline{\makebox[\@title@width][c]{~}}\\
+						~ &  \underline{\makebox[\@title@width][c]{~}}\\
+						~ &  \underline{\makebox[\@title@width][c]{~}}\\
+						~ &  \underline{\makebox[\@title@width][c]{~}}\\
+				\end{tabular}}	% 不加粗
+			}
+			
+			\vspace*{60pt}
+			
+			\vspace*{21pt}
+			
+			\song\sanhao{\textbf{\@cdate}}
 		\end{center}
 	\end{titlepage}
 	
 	
 	\ifprint
-		% 打印时插入空白页
-		\newpage
-		\thispagestyle{empty}
-		\mbox{}
+	% 打印时插入空白页
+	\newpage
+	\thispagestyle{empty}
+	\mbox{}
 	\fi
 	
 	%%%%%%%%%%%%%%%%%%%   Originality Statement  %%%%%%%%%%%%%%%%%%%%%%%
@@ -329,20 +336,20 @@
 	
 	\vspace*{40pt}
 	\begin{flushright}
-	\setlength{\@title@width}{5cm}
-	  {\sihao\song{
-	  \begin{tabular}{lc}
-	    学位论文作者签名:           &  \underline{\makebox[\@title@width][c]{~}} \\
-	    \qquad\qquad~~~ 日~~期:  &  \qquad 年\qquad 月\qquad 日 \\
-	  \end{tabular}}
-	 }
+		\setlength{\@title@width}{5cm}
+		{\sihao\song{
+				\begin{tabular}{lc}
+					学位论文作者签名:           &  \underline{\makebox[\@title@width][c]{~}} \\
+					\qquad\qquad~~~ 日~~期:  &  \qquad 年\qquad 月\qquad 日 \\
+			\end{tabular}}
+		}
 	\end{flushright}
-
+	
 	%%%%%%%%%%%%%%%%%%%   Authorization Statement  %%%%%%%%%%%%%%%%%%%%%%%
 	\vspace*{60pt}
 	\pdfbookmark[0]{学位论文使用授权声明}{authorization}
 	\begin{center}
-	  \sanhao\song\bfseries{学位论文使用授权声明}
+		\sanhao\song\bfseries{学位论文使用授权声明}
 	\end{center}
 	
 	\song\defaultfont
@@ -352,21 +359,21 @@
 	
 	\vspace*{40pt}
 	\begin{flushright}
-	\setlength{\@title@width}{5cm}
-	  {\sihao\song{
-	  \begin{tabular}{ll}
-	    学位论文作者签名: \qquad\qquad\qquad  &  导师签名: \qquad\qquad\qquad\\
-	    日期: \qquad 年\qquad 月\qquad 日     &  日期: \qquad 年\qquad 月\qquad 日 \\
-	  \end{tabular}}
-	 }
+		\setlength{\@title@width}{5cm}
+		{\sihao\song{
+				\begin{tabular}{ll}
+					学位论文作者签名: \qquad\qquad\qquad  &  导师签名: \qquad\qquad\qquad\\
+					日期: \qquad 年\qquad 月\qquad 日     &  日期: \qquad 年\qquad 月\qquad 日 \\
+			\end{tabular}}
+		}
 	\end{flushright}
 	\thispagestyle{empty}   % 去掉页码
 	
 	\ifprint
-		% 空白页
-		\newpage
-		\thispagestyle{empty}
-		\mbox{}
+	% 空白页
+	\newpage
+	\thispagestyle{empty}
+	\mbox{}
 	\fi
 	
 	%%%%%%%%%%%%%%%%%%% Abstract and Keywords 摘要和关键词 %%%%%%%%%%%%%%%%%%%%%%%
@@ -384,20 +391,20 @@
 	\thispagestyle{plain}
 	
 	\begin{flushleft}
-	\setlength{\@title@width}{5cm}
-	  {\xiaosi\song{
-		\begin{tabular}{lcl}
-		论文题目 & : & \@ctitle\\
-		专业 & : & \@csubject \\
-		硕士生 & : & \@cauthor \\
-		指导老师 & : & \@csupervisor \\
-		\end{tabular}}
-	 }
+		\setlength{\@title@width}{5cm}
+		{\xiaosi\song{
+				\begin{tabular}{lcl}
+					论文题目 & : & \@ctitle\\
+					专业 & : & \@csubject \\
+					硕士生 & : & \@cauthor \\
+					指导老师 & : & \@csupervisor \\
+			\end{tabular}}
+		}
 	\end{flushleft}
 	
 	% 中文摘要：小二，黑体加粗，居中
 	\begin{center}
-	\xiaoer\hei\bfseries 摘\qquad 要
+		\xiaoer\hei\bfseries 摘\qquad 要
 	\end{center}
 	
 	\vspace{\baselineskip} % 新增摘要后空行
@@ -412,12 +419,12 @@
 	%\thispagestyle{empty}
 	
 	\ifprint
-		% 空白页
-		\newpage
-		\thispagestyle{empty}
-		\mbox{}
+	% 空白页
+	\newpage
+	\thispagestyle{empty}
+	\mbox{}
 	\fi
-
+	
 	\clearpage
 	% 避免空白页影响页码编号
 	\pagenumbering{Roman}	
@@ -434,22 +441,22 @@
 	
 	% 如果英文title太长，手动分成两行
 	\begin{flushleft}
-	\setlength{\@title@width}{5cm}
+		\setlength{\@title@width}{5cm}
 		{\xiaosi{
-		\begin{tabular}{ll}
-		%Title: & \@etitle \\
-		%		&		   \\
-		Title: & \@etitle \\
-		Major:      &  \@esubject \\
-		Name:       &  \@eauthor \\
-		Supervisor: &  \@esupervisor \\
-		\end{tabular}}
+				\begin{tabular}{ll}
+					%Title: & \@etitle \\
+					%		&		   \\
+					Title: & \@etitle \\
+					Major:      &  \@esubject \\
+					Name:       &  \@eauthor \\
+					Supervisor: &  \@esupervisor \\
+			\end{tabular}}
 		}
 	\end{flushleft}
 	
 	% ABSTRACT三号居中
 	\begin{center}
-	\sanhao{\bf{ABSTRACT}}
+		\sanhao{\bf{ABSTRACT}}
 	\end{center}
 	\vspace{\baselineskip}
 	
@@ -460,12 +467,12 @@
 	\hangafter=1\hangindent=60pt\noindent
 	{\textbf{Keywords:}} \@ekeywords
 	\thispagestyle{plain}
-
+	
 	\ifprint
-		% 空白页
-		\newpage
-		\thispagestyle{empty}
-		\mbox{}
+	% 空白页
+	\newpage
+	\thispagestyle{empty}
+	\mbox{}
 	\fi
 	
 	% 避免空白页影响页码编号
@@ -473,13 +480,30 @@
 	\pagenumbering{Roman}
 	\setcounter{page}{3}
 	
-	}
+}
 \makeatother
 
 %%%%%%%%%%%% 脚注 %%%%%%%%%%%%%%%%%
-%\renewcommand\footnoterule{\flushleft\raisebox{2pt}{\rule{42.68pt}{0.4pt}}}
-%\skip\footins=17.07pt
+% 脚注跨章单独编号
+% 脚注跨章连续编号
+%\counterwithout*{footnote}{chapter}
 % 结合geometry布局进行调整
-\renewcommand\footnoterule{\vspace*{1.5cm}\hrule width 2.5cm\vspace*{0.3cm}}
+%\renewcommand\footnoterule{\flushleft\raisebox{20pt}{\rule{42.68pt}{0.4pt}}}
+%\skip\footins=0.07pt
+%\renewcommand\footnoterule{
+%	\vspace*{1.5cm}
+%	\hrule width 2.5cm
+%	\vspace*{0.3cm}
+%}
+\renewcommand{\footnoterule}{%
+	\kern 38pt
+	% 尾注线属性
+	\hrule width 2.5cm height 0.5pt
+	% 尾注行距
+	\kern 1pt
+}
+
+%\setlength{\skip\footins}{1cm} % gap between text and footer
+%\setlength{\footskip}{1.5cm}
 % 调整脚注行距
 %\renewcommand\footnotesep{0in}

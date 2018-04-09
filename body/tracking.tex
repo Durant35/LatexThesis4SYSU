@@ -1,6 +1,6 @@
 % !Mode:: "TeX:UTF-8"
 
-\chapter{相关研究}
+\chapter{相关研究2}
 
 也有另一种结构将相关研究放在第一章，从第二章开始讲述自己的研究。
 
@@ -27,3 +27,15 @@ bb
 \section{第三节}
 
 \section{本章总结}
+
+
+% 打印时插入必要的空白页
+\ifprint
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+% 避免空白页影响页码编号
+\clearpage
+\setcounter{page}{10}
+\fi
