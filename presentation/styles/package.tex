@@ -1,0 +1,77 @@
+% !Mode:: "TeX:UTF-8"
+
+%%%%%%%%%% Package %%%%%%%%%%%%
+ 
+\usepackage[BoldFont,SlantFont]{xeCJK}
+%%%%%%%%%%%%%%%%% Fonts Definition and Basics %%%%%%%%%%%%%%%%%
+% 宋体
+\setCJKfamilyfont{song}{SimSun}
+\newcommand{\song}{\CJKfamily{song}}
+% 仿宋体
+\setCJKfamilyfont{fs}{FangSong_GB2312}
+\newcommand{\fs}{\CJKfamily{fs}}
+% 楷体
+\setCJKfamilyfont{kai}{KaiTi_GB2312}
+\newcommand{\kai}{\CJKfamily{kai}}
+% 黑体
+\setCJKfamilyfont{hei}{SimHei}
+\newcommand{\hei}{\CJKfamily{hei}}
+% 隶书
+\setCJKfamilyfont{li}{LiSu}
+\newcommand{\li}{\CJKfamily{li}}
+
+%\setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Kaiti Std}]{AdobeSongStd-Light}
+
+%\setCJKmainfont[BoldFont={\hei},ItalicFont={\kai}]{\song}
+% \setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Kaiti Std}]{SimSum} %Windows先编译使用这个字体
+
+
+% 定义默认英文字体为IEEE采用的Times New Roman字体
+\setmainfont{Times New Roman}
+% 定义默认中文字体为宋体
+\setCJKmainfont{SimSun}
+
+\usepackage{latexsym,amssymb,amsmath,amsbsy,amsopn,amstext,xcolor,multicol}
+\usepackage{graphicx,wrapfig,fancybox}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
+\usepackage{thubeamer}
+\usepackage[backend=bibtex,sorting=none]{biblatex} % [参考文献格式](https://www.sharelatex.com/blog/2013/07/31/getting-started-with-biblatex.html) %mac IEEE not found
+\usepackage{array}
+\usepackage{bm}
+\usepackage{caption}
+\RequirePackage[font=footnotesize]{subcaption}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usepackage{animate}
+
+\defbibheading{bibliography}[\bibname]{} %avoid printbibliography 自动生成目录
+\addbibresource{../main.bib}
+\setbeamertemplate{bibliography item}[text] 
+
+\usepackage{boxedminipage} %for: bvh border
+\def\fourgraphicswidth{0.35} %0.3\textwidth
+
+\usepackage{algorithm} %%format of the algorithm
+\usepackage{algpseudocode}
+\floatname{algorithm}{算法}
+\renewcommand{\algorithmicrequire}{\textbf{输入:}} % Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{\textbf{输出:}} % UseOutput in the format of Algorithm
+\algrenewcommand{\algorithmiccomment}[1]{ $//$ #1}
+
+\usepackage{listings}
+\renewcommand\lstlistingname{代码}
+\renewcommand\lstlistlistingname{代码}
+
+\lstset{framexleftmargin=1.4em,
+	xleftmargin=1.8em,
+	basicstyle=\ttfamily\small,
+	%frame=shadowbox, numberstyle=\tiny, breaklines=true,
+	frame=single,
+	numberstyle=\tiny, breaklines=true,
+	keywordstyle=\color{blue!70}\bfseries,
+	%commentstyle=\color{red!50!green!50!blue!50},
+	rulesepcolor=\color{red!20!green!20!blue!20},
+	numbers=none,fontadjust=true}
+\lstdefinelanguage{shader}{morekeywords={uniform, layout, uniform, vec2, vec3, vec4, in, out, gl_Position, dot, flat, int ,float, gl_VertexID, xyz, w, x, y, z, location, version, sampler2DRect, bgr, gl_FragData, texture2DRect, gl_TexCoord,for,xy},morecomment=[l]{//}}
