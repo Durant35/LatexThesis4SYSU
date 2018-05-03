@@ -83,26 +83,26 @@
 % 如果您的pdf制作中文书签有乱码使用如下命令，就可以解决了
 \def\atemp{dvipdfmx}\ifx\atemp\usewhat
 \usepackage[dvipdfmx,unicode,               % dvipdfmx 编译, 加入了中文复制，粘贴支持引擎。
-pdfstartview=FitH,
-bookmarksnumbered=true,
-bookmarksopen=true,
-colorlinks=false,
-pdfborder={0 0 1},
-citecolor=blue,
-linkcolor=red,
-anchorcolor=green,
-urlcolor=blue,
-breaklinks=true
-]{hyperref}
+            pdfstartview=FitH,
+            bookmarksnumbered=true,
+            bookmarksopen=true,
+            colorlinks=false,
+            pdfborder={0 0 1},
+            citecolor=blue,
+            linkcolor=red,
+            anchorcolor=green,
+            urlcolor=blue,
+            breaklinks=true
+            ]{hyperref}
 \fi
 
 \def\atemp{pdflatex}\ifx\atemp\usewhat
 \usepackage{cmap}                           % pdflatex 编译时，可以生成可复制、粘贴的中文 PDF 文档， 缺点是在Windows上显示时效果不大好，字体发虚
 \usepackage[pdftex,unicode,
-%CJKbookmarks=true,
-bookmarksnumbered=true,
-bookmarksopen=true,				
-hidelinks
+            %CJKbookmarks=true,
+            bookmarksnumbered=true,
+            bookmarksopen=true,				
+            hidelinks
 %            colorlinks=true,		% original false
 %            pdfborder={0 0 1},
 %            citecolor=black,		% original blue
@@ -110,7 +110,7 @@ hidelinks
 %            anchorcolor=black,		% original green
 %            urlcolor=blue,
 %            breaklinks=false		% original true
-]{hyperref}
+            ]{hyperref}
 \fi
 
 % 新增for url
