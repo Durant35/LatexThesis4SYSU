@@ -1,5 +1,16 @@
 % !Mode:: "TeX:UTF-8"
 
+% 打印时插入必要的空白页
+\ifprint
+	\newpage
+	\thispagestyle{empty}
+	\mbox{}
+	
+	% 避免空白页影响页码编号
+	\clearpage
+	\setcounter{page}{10}
+\fi
+
 \markboth{攻读硕士学位期间发表学术论文情况}{攻读硕士学位期间发表学术论文情况}
 \addcontentsline{toc}{chapter}{攻读硕士学位期间发表学术论文情况}
 % 如果需要从该页开始从 1 开始编页，则取消以下注释
@@ -15,3 +26,15 @@
 
 % 不显示页码，则取消以下注释
 %\thispagestyle{empty}
+
+
+% 打印时插入必要的空白页
+\ifprint
+	\newpage
+	\thispagestyle{empty}
+	\mbox{}
+	
+	% 避免空白页影响页码编号
+	\clearpage
+	\setcounter{page}{10}
+\fi
