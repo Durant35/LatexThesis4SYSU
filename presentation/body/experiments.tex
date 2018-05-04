@@ -1,0 +1,96 @@
+\section{实验与结果}
+
+\frame
+{
+	\frametitle{\secname~ }
+	\begin{block}{数据集}
+	\end{block}
+	\begin{block}{准确率度量方式}
+	\end{block}
+	\begin{block}{VOC 2012实验结果}
+	\end{block}
+	\begin{block}{SIFT FLOW实验结果}
+	\end{block}
+}
+
+\subsection*{数据集与度量方式}
+\frame{
+	\frametitle{Pascal VOC 2012 \& SIFT FLOW数据集}
+	\vspace{-0.8em}
+	\input{figures/demo_images/chap04_example}
+	\vspace{-1.8em}
+	\input{figures/demo_images/chap04_siftflow}
+	\vspace{-1.2em}
+	\footnotesize
+	\begin{block}{图像预处理}
+		\vspace{-0.5em}
+		\begin{itemize}
+			\item 训练时图像均缩放为321*321
+			\item 随机选取训练图像，随机取镜像,数据白化
+		\end{itemize}
+	\end{block}
+}
+
+\frame{
+	\frametitle{准确率度量方式}
+	\begin{block}{}
+		设$n_{ij}$为真实值属于类别$i$但被分类为类别$j$的像素个数，$n_{cl}$表示有多少种不同的标签，$t_i=\sum_{j=1}^{n_{cl}}n_{ij}$为所有真实值为类别$i$的像素个数。
+		\begin{align}
+		\begin{split}
+		\mbox{像素准确率} &= \sum_{i=1}^{n_{cl}}n_{ii} / \sum_{i=1}^{n_{cl}}t_i \\
+		\mbox{平均像素准确率} &= \frac{1}{n_{cl}} \sum_{i=1}^{n_{cl}}(n_{ii}/ t_i) \\
+		\mbox{Mean IU} &= \frac{1}{n_{cl}} \sum_{i=1}^{n_{cl}}\frac{n_{ii}}{t_i + \sum_j^{n_{cl}} n_{ji} - n_{ii}}
+		\end{split}
+		\end{align}
+	\end{block}
+}
+
+\subsection*{VOC 2012结果}
+\frame{
+	\frametitle{网格型长短记忆网络层数的选择}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\vspace{-0.8em}
+			\input{figures/demo_images/chap04_trainingaccuracy}
+		\end{column}
+		\vspace{-1.1em}
+		\begin{column}{0.5\textwidth}
+			\footnotesize
+			\begin{itemize}
+				\item[\dag] 在一定范围内增加长短记忆层数可以有效提高网络效果
+				\item[\dag] 增加了5层网格型长短记忆网络之后，网络效果提升了\textbf{7.5\%}
+			\end{itemize}
+		\end{column}
+	\end{columns}
+	\vspace{-1em}
+	\input{figures/demo_images/chap04_improvement}
+}
+
+\frame{
+	\frametitle{与其它工作的定量对比}
+	\input{tables/demo/chap04_voctest}
+	\vspace{-1em}
+	\begin{block}{结论}
+		\begin{itemize}
+			\item[\dag]模型比其他方法有更高的精确度，验证了模型的有效性	
+		\end{itemize}
+	\end{block}
+}
+
+\frame{
+	\frametitle{与其它工作的定性对比}
+	\input{figures/demo_images/chap04_compare}
+}
+
+\frame{
+	\frametitle{一些分割失败的例子}
+	\input{figures/demo_images/chap04_error}
+}
+
+\subsection*{SIFT FLOW实验结果}
+\frame{
+	\frametitle{}
+	\input{tables/demo/chap04_siftflow}
+}
+
+\endinput

@@ -1,0 +1,19 @@
+\begin{table}[h] %voc table result
+	\centering
+	\resizebox{\textwidth}{!}{
+		\begin{tabular}{c|*{20}{c}|c}
+			\toprule
+			Method & aero & bike & bird & boat & bottle & bus & car & cat & chair & cow & table & dog & horse & mbike & person & plant & shep & sofa & train & tv & mIoU.\\
+			\midrule
+			\midrule
+			SDS\footnote{Simultaneous Detection and Segmentation, ECCV 2014}& 63.3 & 25.7 & 63.0 & 39.8 & 59.2 & 70.9 & 61.4 & 54.9 & 16.8 & 45.0 & 48.2 & 50.5 & 51.0 & 57.7 & 63.3 & 31.8 & 58.7 & 31.2 & 55.7 & 48.5 & 51.6 \\
+			FCN-8s\footnote{Fully convolutional networks for semantic segmentation, CVPR 2015}  & 76.8 & 34.2 & 68.9 & 49.4 & 60.3 & 75.3 & 74.7 & 77.6 & 21.4 & 62.5 & 46.8 & 71.8 & 63.9 & 76.5 & 73.9 & 45.2 & 72.4 & 37.4 & 70.9 & 55.1 & 62.2\\
+			TTI-zoomout-16\footnote{Feedforward semantic segmentation with zoom-out features, CVPR 2015} & \textbf{81.9} & 35.1 & \textbf{78.2} & \textbf{57.4} & 56.5 & 80.5 & 74.0 & 79.8 & 22.4 & 69.6 & 53.7 & 74.0 & \textbf{76.0} & 76.6 & 68.8 & 44.3 & 70.2 & 40.2 & 68.9 & 55.3 &	64.4 \\
+			DeepLab-CRF\footnote{Semantic image segmentation with deep convolutional nets and fully connected crfs, ICLR 2015} & 78.4 & 33.1 & \textbf{78.2} & 55.6 & \textbf{65.3} & 81.3 & 75.5 & 78.6 & \textbf{25.3} & 69.2 & 52.7 & \textbf{75.2} & 69.0 & \textbf{79.1} & \textbf{77.6} & \textbf{54.7} & 78.3 & 45.1 & 73.3 & 56.2 & 66.4  \\
+			\midrule
+			CNN+\textbf{5}LSTM & 80.2 & \textbf{35.3} & 74.1 & 54.4 & 64.4 & \textbf{87.3} & \textbf{81.1} & \textbf{80.6} & 22.7 & \textbf{73.6} & \textbf{58.8} & 73.9 & 73.7 & 78.7 & 77.4 & 50.2 & \textbf{80.0} & \textbf{47.9} & \textbf{76.5} & \textbf{63.1} & \textbf{67.9} \\
+			\bottomrule
+	\end{tabular}}
+	\caption[模型在VOC2012测试集上的结果]{模型在VOC2012测试集上的结果。}		
+	\label{tab:voctest}
+\end{table}

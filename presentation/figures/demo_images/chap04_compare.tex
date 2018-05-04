@@ -1,0 +1,58 @@
+\begin{figure} % image examples & compare
+	\begin{subfigure}{0.55\textwidth}
+		\centering
+		\makebox[0.18\textwidth]{\tiny Grid-5LSTM}
+		\makebox[0.18\textwidth]{\tiny FCN-8s}
+		\makebox[0.18\textwidth]{\tiny SDS}
+		\makebox[0.18\textwidth]{\tiny 真值}
+		\makebox[0.18\textwidth]{\tiny 图像} \\
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/my_horse.pdf}
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/fcn_horse.png}
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/sds_horse.png}
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/gt_horse.pdf}
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/im_horse.pdf}
+		\\
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/my_motor.png}
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/fcn_motor.png}
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/sds_motor.png}
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/2007_005173.png}
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/2007_005173.jpg}
+		\\
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/my_sheep.pdf}
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/fcn_sheep.png}
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/sds_sheep.png}
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/gt_sheep.pdf}
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/im_sheep.pdf}
+		\\
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/my_boat.png}
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/fcn_boat.png}
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/sds_boat.png}
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/2007_004241.png}
+		\includegraphics[width=0.18\textwidth]{figures/demo_images/result/compare/2007_004241.jpg}
+		\caption{本文模型效果与其他工作的定性对比}
+		\label{fig:compare1}
+	\end{subfigure}
+	\begin{subfigure}{0.4\textwidth}
+		\centering
+		
+		\includegraphics[width=0.25\textwidth]{figures/demo_images/result/compare/2010_005284.jpg}
+		\includegraphics[width=0.25\textwidth]{figures/demo_images/result/compare/2007_003349.jpg}
+		\includegraphics[width=0.25\textwidth]{figures/demo_images/result/compare/2009_004507.jpg} 
+		\\
+		\includegraphics[width=0.25\textwidth]{figures/demo_images/result/compare/2010_005284.png}
+		\includegraphics[width=0.25\textwidth]{figures/demo_images/result/compare/2007_003349.png}
+		\includegraphics[width=0.25\textwidth]{figures/demo_images/result/compare/2009_004507.png} \\
+		\includegraphics[width=0.25\textwidth]{figures/demo_images/result/compare/zoom_bus.png}
+		\includegraphics[width=0.25\textwidth]{figures/demo_images/result/compare/zoom_bird.png}
+		\includegraphics[width=0.25\textwidth]{figures/demo_images/result/compare/zoom_dog.png} \\
+		\includegraphics[width=0.25\textwidth]{figures/demo_images/result/compare/deeplab_bus.png}
+		\includegraphics[width=0.25\textwidth]{figures/demo_images/result/compare/deeplab_bird.png}
+		\includegraphics[width=0.25\textwidth]{figures/demo_images/result/compare/deeplab_dog.png} \\
+		\includegraphics[width=0.25\textwidth]{figures/demo_images/result/compare/my_bus.png}
+		\includegraphics[width=0.25\textwidth]{figures/demo_images/result/compare/my_bird.png}
+		\includegraphics[width=0.25\textwidth]{figures/demo_images/result/compare/my_dog.png} 
+		\caption{\tiny 其中第一行为图像，第二行为真值，第三行为TTI-zoomout-16,第四行为DeepLab-CRF，第五行是Grid-5LSTM的结果}
+		\label{fig:compare2}
+	\end{subfigure}
+	\caption{Grid-5LSTM与其它模型在VOC 2012验证集上的定性比较}
+\end{figure}

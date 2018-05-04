@@ -1,5 +1,4 @@
 ## Ignore Latex build files and results
-
 *.aux
 *.bbl
 *.blg
@@ -8,3 +7,6 @@
 *.gz
 *.thm
 *.toc
+*.nav
+*.run.xml
+*.snm

@@ -3,28 +3,6 @@
 %%%%%%%%%% Package %%%%%%%%%%%%
  
 \usepackage[BoldFont,SlantFont]{xeCJK}
-%%%%%%%%%%%%%%%%% Fonts Definition and Basics %%%%%%%%%%%%%%%%%
-% 宋体
-\setCJKfamilyfont{song}{SimSun}
-\newcommand{\song}{\CJKfamily{song}}
-% 仿宋体
-\setCJKfamilyfont{fs}{FangSong_GB2312}
-\newcommand{\fs}{\CJKfamily{fs}}
-% 楷体
-\setCJKfamilyfont{kai}{KaiTi_GB2312}
-\newcommand{\kai}{\CJKfamily{kai}}
-% 黑体
-\setCJKfamilyfont{hei}{SimHei}
-\newcommand{\hei}{\CJKfamily{hei}}
-% 隶书
-\setCJKfamilyfont{li}{LiSu}
-\newcommand{\li}{\CJKfamily{li}}
-
-%\setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Kaiti Std}]{AdobeSongStd-Light}
-
-%\setCJKmainfont[BoldFont={\hei},ItalicFont={\kai}]{\song}
-% \setCJKmainfont[BoldFont={Adobe Heiti Std},ItalicFont={Adobe Kaiti Std}]{SimSum} %Windows先编译使用这个字体
-
 
 % 定义默认英文字体为IEEE采用的Times New Roman字体
 \setmainfont{Times New Roman}
@@ -34,7 +12,7 @@
 \usepackage{latexsym,amssymb,amsmath,amsbsy,amsopn,amstext,xcolor,multicol}
 \usepackage{graphicx,wrapfig,fancybox}
 \usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
-\usepackage{thubeamer}
+\usepackage{styles/thubeamer}
 \usepackage[backend=bibtex,sorting=none]{biblatex} % [参考文献格式](https://www.sharelatex.com/blog/2013/07/31/getting-started-with-biblatex.html) %mac IEEE not found
 \usepackage{array}
 \usepackage{bm}
@@ -47,7 +25,7 @@
 \usepackage{animate}
 
 \defbibheading{bibliography}[\bibname]{} %avoid printbibliography 自动生成目录
-\addbibresource{../main.bib}
+\addbibresource{../../references/thesis.bib}
 \setbeamertemplate{bibliography item}[text] 
 
 \usepackage{boxedminipage} %for: bvh border

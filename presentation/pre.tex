@@ -3,42 +3,69 @@
 % 定义本文所使用宏包
 \input{styles/package}
 
+\graphicspath{{./figures/}}
+
 \begin{document}
+	\setbeamerfont{footnote}{size=\tiny}
+	\setbeamerfont{caption}{size=\scriptsize}
+	\setbeamertemplate{caption}[numbered]
+	\setbeamerfont{subsection in toc}{size=\footnotesize}
+	\renewcommand*{\bibfont}{\footnotesize}
+	
+	\title[融合长短记忆神经网络与卷积特征学习的图像语义分割]{中文题目 \\ \vskip 8pt \normalsize The English Title \\ Title...}
+	\author[~~~~陈胜杰~~~~CHEN Shengjie]{}
+	\institute[中山大学~数据科学与计算机学院~工程硕士(软件工程)]{}
+	\date{}
+	
+	%% make title %%
+	{
+		\setbeamertemplate{headline}{}
+		\setbeamertemplate{footline}{}
+		
+		\usebackgroundtemplate{%
+			\includegraphics[width=\paperwidth,height=\paperheight]{styles/title.png}
+		}
+		
+		\begin{frame}
+		%\begin{frame}[plain]
+			%% make logo without name %%
+			%\begin{flushright}
+			%	\vspace{-15mm}
+			%	\includegraphics[width=1.48cm]{styles/badge.png}
+			%\end{flushright}
+			
+			%% make logo with name %%
+			\begin{flushright}
+				\vspace{-13.888mm}
+				\includegraphics[width=4.5cm]{styles/logo.png}
+			\end{flushright}
+		
+			\vspace{-7.888mm}
+			\titlepage
+			
+			\begin{flushright}
+				\begin{tabular}{lc}
+					学位申请人   &  \underline{\makebox[108pt][c]{陈胜杰}} \\
+					专\ 业\ 名\ 称   &  \underline{\makebox[108pt][c]{工程硕士(软件工程)}} \\
+					答\ 辩\ 时\ 间   &  \underline{\makebox[108pt][c]{May 13, 2018}} \\
+				\end{tabular}
+			\end{flushright}
+		\end{frame}
+	}
+	\addtocounter{framenumber}{-1}
+	
+	%% make contents %%
+	\frame {
+		\frametitle{目录}
+		\tableofcontents[sections={<1-7>}]
+	}
 
-\setbeamerfont{footnote}{size=\tiny}
-\setbeamerfont{caption}{size=\scriptsize}
-\setbeamertemplate{caption}[numbered]
-\setbeamerfont{subsection in toc}{size=\footnotesize}
-\renewcommand*{\bibfont}{\footnotesize}
-
-\graphicspath{{../}}
-
-\title[融合长短记忆神经网络与卷积特征学习的图像语义分割]{中山大学本科毕业论文演示文稿非正式模版}
-\author[陈冠英]{}%{(申请中山大学工学学士学位论文答辩报告)\\ \vskip 20pt 学~~~~~~生：陈~冠~英}
-\institute[中山大学~电子信息与工程学院~\&~自动化]{}%{\small \vskip 38pt 电子信息与工程学院~自动化}
-\date{} %{\small \vskip -17pt二〇一六年五月}
-
-%% make title %%
-\frame{
-	\titlepage
-	\vspace{-23mm}
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=\textwidth]{image/illustration/networkstructure.pdf}
-	\end{figure}
-}
-
-\frame {
-	\frametitle{目录}
-	%\begin{multicols}{2}
-	\tableofcontents[sections={<1-7>}]
-}
-
-\include{chap01}
-\include{chap02}
-\include{chap03}
-\include{chap04}
-\include{chap05}
-\include{chap06}
+	%% make body %%
+	\include{body/introduction}
+	\include{body/dnn}
+	\include{body/model}
+	\include{body/experiments}
+	\include{body/conclusion}
+	\include{body/Q&A}
 
 \end{document}
