@@ -12,10 +12,17 @@
 % 定义本文所使用宏包
 \input{styles/package}
 
+
 % 生成打印文档，插入空白页
 \newif\ifprint
 % 需要打印时取消注释
 %\printtrue
+
+% 生成盲审使用文档
+\newif\ifreview
+% 需要生成盲审使用文档时取消注释
+%\reviewtrue
+
 
 % 定义默认英文字体为IEEE采用的Times New Roman字体
 \setmainfont{Times New Roman}

@@ -6,15 +6,20 @@
 \csubject{专业中文名}   % 专业名称
 \esubject{Major English Name}
 
-\cauthor{李四}            % 学生姓名
-\eauthor{Li Si}
-\csupervisor{张三~教授}        % 导师姓名，~用于间隔职称
-\esupervisor{Prof. Zhang San}
-% 盲审时用
-%\cauthor{XXX}            % 学生姓名
-%\eauthor{XXX}
-%\csupervisor{XXX}        % 导师姓名
-%\esupervisor{Prof. XXX}
+
+\ifreview
+	% 盲审时用
+	\cauthor{ }            % 学生姓名
+	\eauthor{ }
+	\csupervisor{ }        % 导师姓名
+	\esupervisor{ }
+\else
+	\cauthor{李四}            % 学生姓名
+	\eauthor{Li Si}
+	\csupervisor{张三~教授、王五~教授}        % 导师姓名，~用于间隔职称
+	\esupervisor{Prof. Zhang San and Prof. Wang Wu}
+\fi
+
 
 % 自动数字日期
 %\cdate{\the\year~年~\the\month~月~\the\day~日}
