@@ -1,4 +1,4 @@
-## Ignore Latex build files and results
+# ignore Latex build files and results
 *.aux
 *.bbl
 *.blg
@@ -10,3 +10,6 @@
 *.nav
 *.run.xml
 *.snm
+
+# ignore Slide generated files
+presentation/*.bib
