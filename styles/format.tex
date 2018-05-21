@@ -489,6 +489,16 @@
 	\pagenumbering{Roman}
 	\setcounter{page}{3}
 	
+	} % end of `\def\makecover`
+
+	\def\maketime{
+	% 如果需要加名字和日期（日期根据生成文档日期变更）
+	\begin{flushright}
+		\begin{tabular}{cl}
+			\@cauthor & \\
+			\@cdate &
+		\end{tabular}
+	\end{flushright}
 	}
 \makeatother
 
