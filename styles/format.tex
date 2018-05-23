@@ -285,49 +285,54 @@
 	\phantomsection
 	\pdfbookmark[-1]{\@ctitle}{ctitle}
 	
-	\begin{titlepage}
-		\vspace*{31.5pt}
-		\begin{center}
-	
-		\vspace*{21pt}
-		\hei\chuhao{\textbf{中山大学硕士学位论文}}
-	
-		\vspace*{60pt}
-		\song\xiaoer{\@ctitle}
-	
-		\xiaoer{\textrm{\@etitle}}
-	
-		\vspace*{80pt}
-		\setlength{\@title@width}{6cm}	% 控制封面中下划线的长度。
-		{\sihao\song{
-		\begin{tabular}{lc}
-		 学~~位~~申~~请~~人   &  \underline{\makebox[\@title@width][c]{\@cauthor}} \\
-		 指~~~~导~~~~老~~~~师       &  \underline{\makebox[\@title@width][c]{\@csupervisor}} \\
-		 专~~~~业~~~~名~~~~称 &  \underline{\makebox[\@title@width][c]{\@csubject}}\\
-		\end{tabular}}
-		}
-	
-		\vspace*{42pt}
-		\setlength{\@title@width}{5cm}
-		{\sanhao\song{
-		\begin{tabular}{lc}
-		 答辩委员会主席(签名):  &  \underline{\makebox[\@title@width][c]{~}} \\
-		 答辩委员会委员(签名):  &  \underline{\makebox[\@title@width][c]{~}} \\
-		 ~ &  \underline{\makebox[\@title@width][c]{~}}\\
-		 ~ &  \underline{\makebox[\@title@width][c]{~}}\\
-		 ~ &  \underline{\makebox[\@title@width][c]{~}}\\
-		 ~ &  \underline{\makebox[\@title@width][c]{~}}\\
-		\end{tabular}}	% 不加粗
-		}
-	
-		\vspace*{60pt}
-	
-		\vspace*{21pt}
-	
-		\song\sanhao{\textbf{\@cdate}}
-		\end{center}
-	\end{titlepage}
-	
+	\ifsubmit
+		\begin{titlepage}
+			\includepdf{./signatures/TitlePage.pdf}
+		\end{titlepage}	
+	\else
+		\begin{titlepage}
+			\vspace*{31.5pt}
+			\begin{center}
+		
+			\vspace*{21pt}
+			\hei\chuhao{\textbf{中山大学硕士学位论文}}
+		
+			\vspace*{60pt}
+			\song\xiaoer{\@ctitle}
+		
+			\xiaoer{\textrm{\@etitle}}
+		
+			\vspace*{80pt}
+			\setlength{\@title@width}{6cm}	% 控制封面中下划线的长度。
+			{\sihao\song{
+			\begin{tabular}{lc}
+			 学~~位~~申~~请~~人   &  \underline{\makebox[\@title@width][c]{\@cauthor}} \\
+			 指~~~~导~~~~老~~~~师       &  \underline{\makebox[\@title@width][c]{\@csupervisor}} \\
+			 专~~~~业~~~~名~~~~称 &  \underline{\makebox[\@title@width][c]{\@csubject}}\\
+			\end{tabular}}
+			}
+		
+			\vspace*{42pt}
+			\setlength{\@title@width}{5cm}
+			{\sanhao\song{
+			\begin{tabular}{lc}
+			 答辩委员会主席(签名):  &  \underline{\makebox[\@title@width][c]{~}} \\
+			 答辩委员会委员(签名):  &  \underline{\makebox[\@title@width][c]{~}} \\
+			 ~ &  \underline{\makebox[\@title@width][c]{~}}\\
+			 ~ &  \underline{\makebox[\@title@width][c]{~}}\\
+			 ~ &  \underline{\makebox[\@title@width][c]{~}}\\
+			 ~ &  \underline{\makebox[\@title@width][c]{~}}\\
+			\end{tabular}}	% 不加粗
+			}
+		
+			\vspace*{60pt}
+		
+			\vspace*{21pt}
+		
+			\song\sanhao{\textbf{\@cdate}}
+			\end{center}
+		\end{titlepage}
+	\fi
 	
 	\ifprint
 		% 打印时插入空白页
@@ -339,43 +344,49 @@
 	%%%%%%%%%%%%%%%%%%%   Originality Statement  %%%%%%%%%%%%%%%%%%%%%%%
 	\clearpage
 	\pdfbookmark[0]{论文原创性声明}{originality}
-	\chapter*{\centering\sanhao\song\bfseries 论文原创性声明}
-	\song\defaultfont
-	本人郑重声明：所呈交的学位论文，是本人在导师的指导下，独立进行研究工作所取得的成果。除文中已经注明引用的内容外，本论文不包含任何其他个人或集体已经发表或撰写过的作品成果。对本文的研究作出重要贡献的个人和集体，均已在文中以明确方式标明。本人完全意识到本声明的法律结果由本人承担。
 	
-	\vspace*{40pt}
-	\begin{flushright}
-	\setlength{\@title@width}{5cm}
-	  {\sihao\song{
-	  \begin{tabular}{lc}
-	    学位论文作者签名:           &  \underline{\makebox[\@title@width][c]{~}} \\
-	    \qquad\qquad~~~ 日~~期:  &  \qquad 年\qquad 月\qquad 日 \\
-	  \end{tabular}}
-	 }
-	\end{flushright}
+	\ifsubmit
+		\includepdf{./signatures/OriginalityStatement.pdf}
+	\else
+		\chapter*{\centering\sanhao\song\bfseries 论文原创性声明}
+		\song\defaultfont
+		本人郑重声明：所呈交的学位论文，是本人在导师的指导下，独立进行研究工作所取得的成果。除文中已经注明引用的内容外，本论文不包含任何其他个人或集体已经发表或撰写过的作品成果。对本文的研究作出重要贡献的个人和集体，均已在文中以明确方式标明。本人完全意识到本声明的法律结果由本人承担。
+		
+		\vspace*{40pt}
+		\begin{flushright}
+		\setlength{\@title@width}{5cm}
+		  {\sihao\song{
+		  \begin{tabular}{lc}
+		    学位论文作者签名:           &  \underline{\makebox[\@title@width][c]{~}} \\
+		    \qquad\qquad~~~ 日~~期:  &  \qquad 年\qquad 月\qquad 日 \\
+		  \end{tabular}}
+		 }
+		\end{flushright}
+	
+		%%%%%%%%%%%%%%%%%%%   Authorization Statement  %%%%%%%%%%%%%%%%%%%%%%%
+		\vspace*{60pt}
+		\pdfbookmark[0]{学位论文使用授权声明}{authorization}
+		\begin{center}
+		  \sanhao\song\bfseries{学位论文使用授权声明}
+		\end{center}
+		
+		\song\defaultfont
+		本人完全了解中山大学有关保留、使用学位论文的规定，即：学校有权保留学位论文并向国家主管部门或其指定机构送交论文的电子版和纸质版；有权将学位论文用于非赢利目的的少量复制并允许论文进入学校图书馆、院系资料室被查阅；有权将学位论文的内容编入有关数据库进行检索；可以采用复印、缩印或其他方法保存学位论文；可以为建立了馆际合作关系的兄弟高校用户提供文献传递服务和交换服务。
+		
+		保密论文保密期满后，适用本声明。
+		
+		\vspace*{40pt}
+		\begin{flushright}
+		\setlength{\@title@width}{5cm}
+		  {\sihao\song{
+		  \begin{tabular}{ll}
+		    学位论文作者签名: \qquad\qquad\qquad  &  导师签名: \qquad\qquad\qquad\\
+		    日期: \qquad 年\qquad 月\qquad 日     &  日期: \qquad 年\qquad 月\qquad 日 \\
+		  \end{tabular}}
+		 }
+		\end{flushright}
+	\fi
 
-	%%%%%%%%%%%%%%%%%%%   Authorization Statement  %%%%%%%%%%%%%%%%%%%%%%%
-	\vspace*{60pt}
-	\pdfbookmark[0]{学位论文使用授权声明}{authorization}
-	\begin{center}
-	  \sanhao\song\bfseries{学位论文使用授权声明}
-	\end{center}
-	
-	\song\defaultfont
-	本人完全了解中山大学有关保留、使用学位论文的规定，即：学校有权保留学位论文并向国家主管部门或其指定机构送交论文的电子版和纸质版；有权将学位论文用于非赢利目的的少量复制并允许论文进入学校图书馆、院系资料室被查阅；有权将学位论文的内容编入有关数据库进行检索；可以采用复印、缩印或其他方法保存学位论文；可以为建立了馆际合作关系的兄弟高校用户提供文献传递服务和交换服务。
-	
-	保密论文保密期满后，适用本声明。
-	
-	\vspace*{40pt}
-	\begin{flushright}
-	\setlength{\@title@width}{5cm}
-	  {\sihao\song{
-	  \begin{tabular}{ll}
-	    学位论文作者签名: \qquad\qquad\qquad  &  导师签名: \qquad\qquad\qquad\\
-	    日期: \qquad 年\qquad 月\qquad 日     &  日期: \qquad 年\qquad 月\qquad 日 \\
-	  \end{tabular}}
-	 }
-	\end{flushright}
 	\thispagestyle{empty}   % 去掉页码
 	
 	\ifprint
@@ -488,17 +499,16 @@
 	\clearpage
 	\pagenumbering{Roman}
 	\setcounter{page}{3}
-	
 	} % end of `\def\makecover`
 
 	\def\maketime{
-	% 如果需要加名字和日期（日期根据生成文档日期变更）
-	\begin{flushright}
-		\begin{tabular}{cl}
-			\@cauthor & \\
-			\@cdate &
-		\end{tabular}
-	\end{flushright}
+		% 如果需要加名字和日期（日期根据生成文档日期变更）
+		\begin{flushright}
+			\begin{tabular}{cl}
+				\@cauthor & \\
+				\@cdate &
+			\end{tabular}
+		\end{flushright}
 	}
 \makeatother
 
