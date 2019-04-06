@@ -4,13 +4,39 @@
 
 也有另一种结构将相关研究放在第一章，从第二章开始讲述自己的研究。
 
-\section{第一节}
+\section{第一节 一些公式方面的例子}
 
 呵呵
 
-\subsection{第一节的第一小节}
+\subsection{伪代码}
 
-哈哈
+下面是一个\textbf{伪代码}使用的例子：\textbf{算法1}
+
+% 在线训练执行函数
+\begin{algorithm}[!h]
+	\caption{在线训练}
+	\begin{algorithmic}[1] %每行显示行号
+		\Require 当前轮收集到的正负样本$\boldsymbol{S_{P}}$、$\boldsymbol{S_{N}}$及其数目$N_{P}$、$N_{N}$
+		\Require 系统训练样本$\boldsymbol{S}$及其总数目$N$
+		
+		\Function{execTraining}{}
+		\If{($N_{P}$ < $Th_{min\_initial}$) $\lor$ ($N_{N}$ == 0)}
+		\State \Return
+		\EndIf
+		
+		\State $do\_training \gets false$ \Comment{贪婪训练 $\lor$ 迭代训练}
+		\If{($N$ < $Th_{max\_initial}$) $\lor$ (($N_{P}$ > $Th_{round}$) $\land$ ($N_{N}$ > $Th_{round}$))}
+		\State $N_{P}^\prime$，$N_{N}^\prime$，$\boldsymbol{S}^\prime$ $\gets$ \Call{DataAugmentation}{$\boldsymbol{S_{P}}$， $\boldsymbol{S_{N}}$，$N_{P}$，$N_{N}$}
+		\State \Call{OnlineTrain}{$\boldsymbol{S}$，$\boldsymbol{S}^\prime$}
+		\State $do\_training \gets true$
+		\EndIf
+		\If{$do\_training$} \Comment{更新系统训练样本}
+		\State $N \gets N + N_{P}^\prime + N_{N}^\prime$
+		\State $\boldsymbol{S} \gets \boldsymbol{S} + \boldsymbol{S}^\prime$
+		\EndIf
+		\EndFunction
+	\end{algorithmic}
+\end{algorithm}
 
 \subsection{第一节的第二小节}
 
